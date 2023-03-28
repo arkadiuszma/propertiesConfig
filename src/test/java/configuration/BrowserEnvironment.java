@@ -7,7 +7,6 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxOptions;
 
 @Slf4j
 public class BrowserEnvironment {
@@ -41,10 +40,9 @@ public class BrowserEnvironment {
                 driver.get(System.getProperty("url"));
             }
             case "firefox" -> {
-                FirefoxOptions options = new FirefoxOptions();
-                options.addArguments("start-maximized");
-                driver = new FirefoxDriver(options);
+                driver = new FirefoxDriver();
                 driver.get(System.getProperty("url"));
+                driver.manage().window().maximize();
             }
             case "edge" -> {
                 EdgeOptions options = new EdgeOptions();

@@ -15,12 +15,12 @@ public enum PropertyStore {
     ENVIRONMENT("environment"),
     BROWSER_ATTACH_SCREENSHOT("browser.attach.screenshot");
 
-    private String propertyKey;
-    private String value;
+    private final String propertyKey;
+    private final String value;
     public static final String CONFIG_PROPERTIES = "config.properties";
     private static Properties properties = null;
 
-    private PropertyStore(String key) {
+    PropertyStore(String key) {
         this.propertyKey = key;
         this.value = this.retrieveValue(key);
     }
